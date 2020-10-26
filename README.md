@@ -1,5 +1,7 @@
 # Learning typescript 2020 oct 25
 
+## lessons are categorized by branches. see branches for categories
+
 ## I'm learning from [official docs](https://www.typescriptlang.org/)
 
 ### Note: vscode and dist folders are auto generated. vscode folder is generated from compiler Hero On and dist folder is compiled js directory
@@ -18,7 +20,7 @@
   
 
  1. ## list of typescript extensions 
-    -format name, author, installed number
+    - format:  name, author, installed number
    - TypeScript Extension Pack- Loiane Groner - installed 53,611
    - TSLint-Microsoft-2,277,768
    - TypeScript Importer-pmneo-318,246
