@@ -1,38 +1,27 @@
 // Basic Types
-
 // boolean
-let isDone: boolean = false;
+var isDone = false;
 document.write(isDone);
-
 // numbers
-
-let decimal: number = 6;
-let hex: number = 0xf00d;
-let binary: number = 0b1010;
-let octal: number = 0o744;
-let big: bigint = 100n;
-
+var decimal = 6;
+var hex = 0xf00d;
+var binary = 10;
+var octal = 484;
+var big = 100, n;
 console.log(big);
-
 // strings
-let color: string = "blue";
+var color = "blue";
 color = "green";
-console.log(color)
-
-let fullName: string = `Bob Bobbington`;
-let age: number = 37;
-let sentence: string = `Hello, my name is ${fullName}.
-
-I'll be ${age + 1} years old next month.`;
-
-console.log(sentence)
-
+console.log(color);
+var fullName = "Bob Bobbington";
+var age = 37;
+var sentence = "Hello, my name is " + fullName + ".\n\nI'll be " + (age + 1) + " years old next month.";
+console.log(sentence);
 // array
-let list: number[] = [1, 2, 2.5, 3];
-console.log(list[2])
-let list1: Array<number> = [1, 2, 3];
-console.log(list1[1])
-
+var list = [1, 2, 2.5, 3];
+console.log(list[2]);
+var list1 = [1, 2, 3];
+console.log(list1[1]);
 // tuple
 /*
 
@@ -49,62 +38,45 @@ Type 'number' is not assignable to type 'string'.
 Type 'string' is not assignable to type 'number'
 
 */
-
-let x: [string, number];
+var x;
 x = ["hello", 10]; // OK
 /// ---cut---
 // OK
 console.log(x[0].substring(2));
-
 // console.log(x[1].substring(1)); // throw error
-console.log(x[1];
+console.log(x[1]);
 console.log(x[0].substring(3));
-
 // enum
-enum Color {
-    Red = 1,
-    Green,
-    Blue,
-  }
-  let colorName: string = Color[2];
-  
-  // Displays 'Green'
-  console.log(colorName);
-
+var Color;
+(function (Color) {
+    Color[Color["Red"] = 1] = "Red";
+    Color[Color["Green"] = 2] = "Green";
+    Color[Color["Blue"] = 3] = "Blue";
+})(Color || (Color = {}));
+var colorName = Color[2];
+// Displays 'Green'
+console.log(colorName);
 //   unknown
-let notSure: unknown = 4;
+var notSure = 4;
 notSure = "maybe a string instead";
-
 // OK, definitely a boolean
 notSure = true;
-
-console.log(notSure)
-
+console.log(notSure);
 // any
-
 // void 
 // void: don't return any value
-
-function warnUser(): void {
+function warnUser() {
     console.log("This is my warning message");
-  }
+}
 warnUser();
-
 // Null and Undefined
-let u: undefined = undefined;
+var u = undefined;
 // let n: null = null;
-
 console.log(u);
 // console.log(n);
-
 // never
-
 // object
-
 // Type assertions
-
 // let someValue: unknown = "this is a string";
-
 // let strLength: number = (someValue as string).length;
-
 // console.log(strLength);
