@@ -1,63 +1,74 @@
-// Interface
-
-// function printLabel(labeledObj: { label: string }) {
-//   console.log(labeledObj.label);
-// }
-
-// let myObj = { label: "Size 10 Object" };
-// printLabel(myObj);
-
-// above example using interface
-
-// interface LabeledValue {
-//   label: string;
-//   size: number;
-// }
-
-// function printLabel(labeledObj: LabeledValue) {
-//   console.log(labeledObj.label, labeledObj.size);
-// }
-
-// let myObj = { size: 10, label: "Size 10 Object" };
-// printLabel(myObj);
-
-// optional ?
-interface LabeledValue {
-  label: string;
-  size?: number;
+// Functions
+// Named function
+function add(x, y) {
+  return x + y;
 }
 
-function printLabel(labeledObj: LabeledValue) {
-  console.log(labeledObj.label);
+// Anonymous function
+let myAdd = function (x, y) {
+  return x + y;
+};
+
+//e.g
+let z: number = 100;
+
+function addToZ(x: number, y: number) {
+  return x + y + z;
+}
+console.log(addToZ(200, 100));
+
+
+// optional and default parameters
+function buildName(firstName: string, lastName: string) {
+  return firstName + " " + lastName;
 }
 
-let myObj = { label: "Size 10 Object" };
-printLabel(myObj);
+let result1 = buildName("Bob"); // error, too few parameters
+Expected 2 arguments, but got 1.
+let result2 = buildName("Bob", "Adams", "Sr."); // error, too many parameters
+Expected 2 arguments, but got 3.
+let result3 = buildName("Bob", "Adams"); // ah, just righ
 
-/*
 
-Readonly properties
-Some properties should only be modifiable when an object is first created. You can specify this by putting readonly before the name of the property:
-
-interface Point {
-  readonly x: number;
-  readonly y: number;
-}Try
-You can construct a Point by assigning an object literal. After the assignment, x and y can’t be changed.
-
-let p1: Point = { x: 10, y: 20 };
-p1.x = 5; // error!
-Cannot assign to 'x' because it is a read-only property.
-
-*/
-
-interface Point {
-  readonly x: number;
-  readonly y: number;
+function buildName(firstName: string, lastName?: string) {
+  if (lastName) return firstName + " " + lastName;
+  else return firstName;
 }
-// ---cut---
-let p1: Point = { x: 10, y: 20 };
-console.log(p1.y);
-p1.x = 5; // error!
 
-// readonly vs const
+let result1 = buildName("Bob"); // works correctly now
+let result2 = buildName("Bob", "Adams", "Sr."); // error, too many parameters
+Expected 1-2 arguments, but got 3.
+let result3 = buildName("Bob", "Adams"); // ah, just right
+
+
+function buildName(firstName: string, lastName = "Smith") {
+  return firstName + " " + lastName;
+}
+
+let result1 = buildName("Bob"); // works correctly now, returns "Bob Smith"
+let result2 = buildName("Bob", undefined); // still works, also returns "Bob Smith"
+let result3 = buildName("Bob", "Adams", "Sr."); // error, too many parameters
+Expected 1-2 arguments, but got 3.
+let result4 = buildName("Bob", "Adams"); // ah, just right
+
+function buildName(firstName = "Will", lastName: string) {
+  return firstName + " " + lastName;
+}
+
+let result1 = buildName("Bob"); // error, too few parameters
+Expected 2 arguments, but got 1.
+let result2 = buildName("Bob", "Adams", "Sr."); // error, too many parameters
+Expected 2 arguments, but got 3.
+let result3 = buildName("Bob", "Adams"); // okay and returns "Bob Adams"
+let result4 = buildName(undefined, "Adams"); // okay and returns "Will Adams"
+
+
+// rest parameters
+function buildName(firstName: string, ...restOfName: string[]) {
+  return firstName + " " + restOfName.join(" ");
+}
+
+// employeeName will be "Joseph Samuel Lucas MacKinzie"
+let employeeName = buildName("Joseph", "Samuel", "Lucas", "MacKinzie", "Ali");
+
+console.log(employeeName);
