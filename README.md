@@ -1,12 +1,36 @@
+# Typescript-2020-0ct-25
+
+## typescript-project-setup-for-learning-purpose
+
+steps:
+ - type `` npm init -y ``
+  
+ - give project name like ``typescript-learning `` in package json file but it should not be `` typescript `` in package.json file
+  
+ - type `` npm i --save-dev -E typescript `` in terminal. This will install latest typescript (currently 4.0.5) in node modules_folder. `` E `` indicates Exact version because range versions are evil.
+  
+ - create directory `` src `` in root and crate typescript file `` main.ts `` in src folder
+  
+ - type some code in typescript file(main.ts) ``` 
+  let fname: string = "hello wao";
+console.log(fname); ```
 
 
-# Learning typescript 2020 oct 25
+- in order to run ts file, first we need to compile into js because browser don't understand typescript. so to do, in package.json add `` build: "tsc" `` which is typescript compilation(tsc) in scripts. check package.json file, you'll understand
 
-## lessons are categorized by branches. see branches for categories
+- run `` npm run build `` got error
 
-## I'm learning from [official docs](https://www.typescriptlang.org/)
+- then run `` tsc ts-file-name ``
+  
+- in this project go to src folder `` cd src `` then run ``tsc main.ts`` and to see output, install node type definition package `` npm i --save-dev -E @types/node `` then type `` node main.ts `` in terminal to see output in terminal.  If you still get error then create tsconfig.json
+  
+- create tsconfig.json file in root directory, paste all things from tsconfig.json file
 
-> # any and unions
+- type `` npm run build `` to generate compiled js code in dist folder
+  
+- to see output in browser create index.html file in public directory and in html file link js file from generated dist folder.open html file in browser to see output
 
-[any-playground-code](https://www.typescriptlang.org/play?target=0#code/PTAEEMDsE8MgTUBXSBLA9pAznRBzAU0gICdUBjLAKCpDmluAHcALI0AW3QDdVI9QAKxzl08AqAAu6KdAAOBLOTJzJoaOiShyUZFglQGAGwJrDAFXkEAXPQDcNC1dABeUACJwR1O7ug6WJJk-FROCq5SJEgEfiAARujoJlChMJbhbgCsfv5gkEgccaQ0othJBAB0Ruh4ABRhBACUDowoGNiMyGiYOHio3BLeHKiSBIiSVjjoqu3UVCZqbT3pEraBwQIAPqAJ5SlUS9grEe5sRtW+VKVY5VU1tYdYK8008UhmWFioeGgC+YWkXr9UigUgkdAkA7dI7OLKxYBgiG2BZdWYrNZBPhbHaJZKQRjHADkmUJoFQOEg6A+Xx+4DiJikMgm4UJ6yxoG2uzxhIqQA)
-
+  
+- want to track changes add `` watch: true `` in tsconfig file
+  
+- want to publish code in github make sure you create ``gitignore file`` to exclude node_modules folder
