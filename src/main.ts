@@ -1,14 +1,26 @@
 // DOM Manipulation with typescript
 
-// 1. Select the div element using the id property
-const app = document.getElementById("app");
+// form
 
-// 2. Create a new <p></p> element programmatically
-const p = document.createElement("p");
+const form = document.querySelector('.new-item-form') as HTMLFormElement;
+// console.log(form.children);
 
-// 3. Add the text content
-p.textContent = "Hello, World!";
+// inputs
+const type = document.querySelector('#type') as HTMLInputElement;
+const tofrom = document.querySelector('#tofrom') as HTMLInputElement;
+const details = document.querySelector('#details') as HTMLInputElement;
+const amount = document.querySelector('#amount') as HTMLInputElement;
 
-// 4. Append the p element to the div element
-app?.appendChild(p);
+form.addEventListener('submit', (e: Event) => {
+  e.preventDefault();
 
+  document.write(`${type.value}, ${tofrom.value}, ${details.value}, ${amount.valueAsNumber}`);
+ 
+
+  // console.log(
+  //   type.value, 
+  //   tofrom.value, 
+  //   details.value, 
+  //   amount.valueAsNumber
+  // );
+});
