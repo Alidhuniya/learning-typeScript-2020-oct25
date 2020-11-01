@@ -7,7 +7,9 @@
         "sourceMap": false,
         "outDir": "./dist",
         "rootDir": "./src",
-        "watch": true
+        "watch": true,
+        "noEmitOnError": true  // by default it's true means if we have error in ts file then it will generate compiled js files but setting true will not generate js files if an ts files have errors
+        
     },
     
    
